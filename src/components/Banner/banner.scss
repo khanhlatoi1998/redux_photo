@@ -1,0 +1,15 @@
+.wraper__banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15rem;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../../assets/images/hanging-white_SAKR9VG5LB.jpg");
+    h1 {
+        font-size: 2.5rem;
+        color: #fff;
+        font-weight: bold;
+    }
+}
