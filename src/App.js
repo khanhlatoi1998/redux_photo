@@ -7,7 +7,7 @@ import React, { Suspense } from "react";
 
 // Lazy load
 const Photo = React.lazy(() => import('./features/Photo'));
-
+// test
 
 function App() {
   return (
