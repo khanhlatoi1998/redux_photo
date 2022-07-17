@@ -6,6 +6,7 @@ import Images from '../../../../contants/images';
 const HomePage = () => {
     return (
         <section>
+
             <Banner title="Hello World! ..." backgroundUrl={Images.background_01}/>
             <Container className="text-center">
                 <NavLink
