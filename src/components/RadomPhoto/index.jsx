@@ -37,6 +37,7 @@ const RandomPhoto = (props) => {
                     : <img src="https://i.picsum.photos/id/800/200/300.jpg?hmac=p2lPeodOve_jNKshk2YAKVhKm4UUIJhfUe_Tt4FdnTA" />
                 }
             </div>
+
         </div>
     );
 };

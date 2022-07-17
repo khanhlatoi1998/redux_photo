@@ -11,8 +11,6 @@ const InputFiled = (props) => {
     const { errors, touched } = form;
     const showError = errors[name] && touched[name];
 
-    console.log(touched[name]);
-    
     return (
         <FormGroup>
             {label && <Label for={name}>{label}</Label>}

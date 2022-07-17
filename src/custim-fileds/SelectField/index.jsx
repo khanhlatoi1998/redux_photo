@@ -1,53 +1,50 @@
 import { FormFeedback, FormGroup, Label } from "reactstrap";
-import  Select  from "react-select";
+import Select from "react-select";
 import { ErrorMessage } from "formik";
 
 const SelectField = (props) => {
-    const { 
+    const {
         form, field,
-        label, type, options, placeholder, disable 
+        label, type, options, placeholder, disable
     } = props;
-    const { name, value, onBlur } = field;
+    const { name, value, onBlur, onChange } = field;
     const { errors, touched } = form;
 
-    const showError = errors[name] && touched[name];
-
+    const showError = errors[name] && (touched[name] || touched["react-select-3-input"]);
 
     let selectedOption = options.find(option => option.value === value);
+
 
     const handlSelectedOptionChange = (selectedOption) => {
         let selectedValue = selectedOption ? selectedOption.value : selectedOption;
 
-        const changeEvent = {
-            target: {
-                name: name,
-                value: selectedValue
-            }
-        }
+        // const changeEvent = {
+        //     target: {
+        //         name: name,
+        //         value: selectedValue
+        //     }
+        // }
 
-        field.onChange(changeEvent);
+        // field.onChange(changeEvent);
+
+        form.setFieldValue(name, selectedValue);
     };
-    
-
 
     return (
         <FormGroup>
-           { label && <Label for={name}>{label}</Label> }
-           <Select
+            {label && <Label for={name}>{label}</Label>}
+            <Select
                 id={name}
                 {...field}
                 value={selectedOption}
-
                 onChange={handlSelectedOptionChange}
-                onClick={() => console.log("clicked")}
+                
                 isDisabled={disable}
                 placeholder={placeholder}
                 options={options}
-
-                className={showError ? 'is-invalid' : ''}
             />
-        { showError && <p>{errors[name]}</p>}
-            <ErrorMessage name={name} component={FormFeedback} />
+
+            {showError && <p style={{ color: 'red' }}>{errors[name]}</p>}
         </FormGroup>
     );
 };
