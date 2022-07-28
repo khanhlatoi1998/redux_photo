@@ -14,7 +14,6 @@ const RandomPhotoField = (props) => {
         form.setFieldValue(name, newImageUrl);
     };
 
-
     return (
         <FormGroup>
             { label && <Label for={name}>{label}</Label>}
@@ -23,8 +22,6 @@ const RandomPhotoField = (props) => {
                 imgUrl={value}
                 onRandomButtonBlur={onBlur}
                 onImageUrlChange={handleImageUrlChange}
-                
-                
             />
 
             {showError && <p style={{color: 'red'}}>{errors[name]}</p>}

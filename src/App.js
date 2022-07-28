@@ -20,6 +20,7 @@ function App() {
           <Routes>
             <Route exact path="/photos" element={<HomePage />} />
             <Route exact path="/photos/add" element={<AddEdit />}/>
+            <Route exact path="/photos/:photoId" element={<AddEdit />}/>
             <Route element={<NotFound />} />
           </Routes>
 

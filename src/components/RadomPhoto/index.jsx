@@ -5,7 +5,7 @@ const RandomPhoto = (props) => {
     const { onImageUrlChange, name, onRandomButtonBlur, imgUrl } = props;
 
     const getRandomUrlImage = () => {
-        const randomid = Math.floor(Math.random() * 1000);
+        const randomid = Math.floor(Math.random() * 10000);
         return `https://picsum.photos/id/${randomid}/200/300`;
     }
 
@@ -33,7 +33,11 @@ const RandomPhoto = (props) => {
 
             <div className="random-photo__photo">
                 { imgUrl 
-                    ? <img src={imgUrl} /> 
+                    ? <img 
+                        // alt="Not found image --- random image"
+                        src={imgUrl} 
+                        onError={handleRandomPhotoClick}
+                    /> 
                     : <img src="https://i.picsum.photos/id/800/200/300.jpg?hmac=p2lPeodOve_jNKshk2YAKVhKm4UUIJhfUe_Tt4FdnTA" />
                 }
             </div>

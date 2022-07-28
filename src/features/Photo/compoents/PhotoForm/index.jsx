@@ -8,11 +8,7 @@ import { Button, FormGroup, Spinner } from "reactstrap";
 import * as yup from 'yup';
 
 const PhotoForm = (props) => {
-  const initialValues = {
-    title: '',
-    categoryId: null,
-    photo: ''
-  }
+  const { initialValues } = props;
 
   const validationSchema = yup.object().shape({
     title: yup.string().required('this field is requied'),
@@ -37,7 +33,6 @@ const PhotoForm = (props) => {
             <FastField
               name="title"
               component={InputFiled}
-
               label="Title"
               placeholder="Eg: wow nature ..."
             />
@@ -59,10 +54,12 @@ const PhotoForm = (props) => {
 
             <FormGroup>
               <Button type="submid" color="primary">
-                {isSubmitting && (<Spinner size="sm">
-                  <span className="visually-hidden"> </span>
-                </Spinner>)}
                 <span> Add to album</span>
+              {isSubmitting && (<Spinner
+                color="light"
+                children=""
+                size="xs"
+              />)}
               </Button>
             </FormGroup>
 
